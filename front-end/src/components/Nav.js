@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logoImg from '../logo512.png';
 
 const Nav = () => {
   const auth = localStorage.getItem("user");
@@ -14,13 +15,12 @@ const Nav = () => {
     <>
       <div className="container">
         <div className="item-1">
-          <img className="logo" src='logo512.png' alt="logo" />
+          <img className="logo" src={logoImg} alt="logo" />
           {auth?
         <div className="item-2">
         <ul className="navUl">
           <li className="navLi"><Link to="/"> Product</Link></li>
           <li className="navLi"><Link to="/add">Add Product</Link></li>
-          <li className="navLi"><Link to="/update">Update Product</Link></li>
           <li className="navLi"><Link to="/about">About </Link></li>
           <li className="navLi"><Link to="/profile"> Profile</Link></li>
         </ul>

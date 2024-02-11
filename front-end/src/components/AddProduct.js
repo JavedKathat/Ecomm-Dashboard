@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
     const [name, setName] = useState("");
@@ -6,6 +7,8 @@ const AddProduct = () => {
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
+
     const addProduct =async ()=> {
         if(!name|| !company|| !price|| !category){
             setError(true);
@@ -20,12 +23,13 @@ const AddProduct = () => {
         });
         result = await result.json();
         console.log(result);
+        navigate('/');
     }
   return (
     <>
       <div className="product">
         
-        <h1>AddProduct</h1>
+        <h1>Add Product</h1>
         <div className="productContainer">
           <input className="inputBox" type="text" placeholder="Enter Product Name" onChange={(e)=>{setName(e.target.value)}} value={name} />
             {error && !name && <span className="invalid-input">Please Enter valid name</span>}
